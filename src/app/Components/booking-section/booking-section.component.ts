@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookingService } from 'src/app/Service/booking.service';
 
 @Component({
   selector: 'app-booking-section',
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./booking-section.component.scss']
 })
 export class BookingSectionComponent implements OnInit {
-
-  constructor() { }
+  
+  constructor(bookingService:BookingService) { }
 
   ngOnInit(): void {
   }

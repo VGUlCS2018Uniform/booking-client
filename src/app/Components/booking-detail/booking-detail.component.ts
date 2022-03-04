@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BookingService } from 'src/app/Service/booking.service';
 import { Booking } from '../booking-section/booking.model';
 
 @Component({
@@ -7,10 +8,14 @@ import { Booking } from '../booking-section/booking.model';
   styleUrls: ['./booking-detail.component.scss']
 })
 export class BookingDetailComponent implements OnInit {
-  @Input() bookingDetails:Booking
-  constructor() { }
+  @Input() bookingDetails:Booking 
+  constructor(private bookingService:BookingService) { }
 
   ngOnInit(): void {
+    this.bookingService.getCurrentBooking.subscribe(
+      bookingData => {this.bookingDetails=bookingData}
+    )
   }
-
+  
+  
 }

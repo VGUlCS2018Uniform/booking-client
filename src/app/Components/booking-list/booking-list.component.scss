@@ -1,11 +1,31 @@
 
+.backContainer{
+    height: 100%;
+    
+}
 
 
-.mat-table{
-    width: 100%;
-    text-align: center;
+.expandRow {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+
+.tableContainer {
+    max-height: calc(100vh - 200px); // or height:calc(100vh - 155px); depending on your need  change
+    overflow: auto;
+}
+mat-paginator{
     border-radius: 10px;
     padding: 16px;
+}
+.mat-table{
+    width: 1200;
+    border-radius: 10px;
+    padding: 16px;
+    height: 400px;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .mat-cell,
@@ -15,5 +35,26 @@
 }
 .mat-row:hover {
     box-shadow: inset 0px -3px 15px #809fff;
+}
 
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: navy; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: navy; 
+}
+
+.expandRow{
+    border-bottom-width: 0;
 }

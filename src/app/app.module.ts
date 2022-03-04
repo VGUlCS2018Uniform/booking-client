@@ -27,7 +27,7 @@ import { BookingListComponent } from './Components/booking-list/booking-list.com
     MaterialModule,
     FormsModule
   ],
-  providers: [],
+  providers: [BookingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
