@@ -1,9 +1,26 @@
-<div class="content" *ngIf="bookingDetails;">
+
+
+
+<h1 style="text-align: center;">Detail content</h1>
+<div *ngIf="bookingDetails; then thenBlock else elseBlock"></div>
+
+
+
+
+
+
+
+
+
+
+
+ <!-- TEMPLATES -->
+<ng-template #thenBlock>
     Booking detail section
     {{bookingDetails.roomid}}
     {{bookingDetails.roomid}}
     {{bookingDetails.roomid}}
     {{bookingDetails.roomid}}
-    {{bookingDetails.roomid}}
-    <ng-template #laz>oof</ng-template>
-</div>
+    {{bookingDetails.roomid}}.
+</ng-template>
+<ng-template #elseBlock>No Booking chosen</ng-template>

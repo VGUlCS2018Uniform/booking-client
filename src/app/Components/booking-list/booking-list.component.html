@@ -1,8 +1,8 @@
-<h1>BookingLists content</h1>
-
+<h1 style="text-align: center;">BookingLists content</h1>
+<button mat-icon-button color="primary" title="Refresh"(click)="$event.stopPropagation();refreshData();"><mat-icon>refresh</mat-icon></button>
 <div class="backContainer">
     <div class="tableContainer">
-      <mat-table [dataSource]="data">
+      <mat-table [dataSource]="bookingData">
 
         <ng-container  matColumnDef="bookingid">
           <th mat-header-cell *matHeaderCellDef> uuid </th>

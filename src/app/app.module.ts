@@ -11,6 +11,8 @@ import { BookingSectionComponent } from './Components/booking-section/booking-se
 import { BookingDetailComponent } from './Components/booking-detail/booking-detail.component';
 import { BookingService } from './Service/booking.service';
 import { BookingListComponent } from './Components/booking-list/booking-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { backEndConnection } from './Service/httpConnection.service';
 
 @NgModule({
   declarations: [
@@ -25,9 +27,10 @@ import { BookingListComponent } from './Components/booking-list/booking-list.com
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [BookingService],
+  providers: [BookingService,backEndConnection],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

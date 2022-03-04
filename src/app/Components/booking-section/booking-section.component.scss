@@ -1,7 +1,14 @@
+
+.row{
+  display: block;
+}
+
 .tableColumn{
   max-width: calc(100vw*70/100);
   float: left;
 }
 .detailColumn{
+  position:relative;
   float: right;
+  
 }
