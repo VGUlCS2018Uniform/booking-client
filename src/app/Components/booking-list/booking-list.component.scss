@@ -1,19 +1,23 @@
 
 .backContainer{
     min-height: 100%;
+    min-width: 100%;
+    padding: 22px;
+    padding-top: 12px;
     
 }
 
 
 
 .tableContainer {
-    max-height: 90%; // or height:calc(100vh - 155px); depending on your need  change
+    max-height: 100%; // or height:calc(100vh - 155px); depending on your need  change
     overflow: hidden;
+    padding-top: 0px;
 }
 
 mat-table{
-    border-radius: 10px;
-    padding: 16px;
+    border-top-left-radius: 10px;
+    padding: 0 , 16px,16px,16px;
     width: 100%;
     height: calc(100vh*70/100);
     overflow-x: hidden;
@@ -21,20 +25,22 @@ mat-table{
     
 }
 .mat-header-row{
-    min-width: 1920px
+    min-width: 1400px
 }
 
 mat-paginator{
     max-height: calc(100vh*20/100);
     border-radius: 10px;
-    padding: 16px;
+    ;
 }
 
 .mat-header-cell {
+    padding: 0px;
     max-width: 100%;
     max-height: 100%;
     box-sizing: border-box;
-    padding: thick;
+    margin: 70px;
+    margin-block-start: auto;
     text-align: center;
     background: #59abfd;
     opacity: 1;
@@ -49,7 +55,8 @@ mat-paginator{
 }
 
 ::-webkit-scrollbar {
-    width: 12px;
+    
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {

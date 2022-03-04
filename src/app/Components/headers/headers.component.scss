@@ -4,6 +4,7 @@ mat-toolbar {
 }
 
 mat-sidenav {
+
     margin: 16px;
     width: 200px;
     max-height: 90vh;
@@ -28,7 +29,7 @@ mat-sidenav {
 }
 
 mat-sidenav-container {
-    position: relative;
+    position:fixed;
 }
 
 .menu-button {

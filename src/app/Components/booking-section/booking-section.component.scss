@@ -1,13 +1,18 @@
 
 .row{
-  display: block;
+  display: flex;
+  text-align: center;
 }
 
 .tableColumn{
+  inherits:initial;
+  
   max-width: calc(100vw*70/100);
   float: left;
 }
 .detailColumn{
+  width: calc(100vw*25/100);
+  padding: 12px;
   position:relative;
   float: right;
   

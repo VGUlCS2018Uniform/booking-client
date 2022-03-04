@@ -61,6 +61,7 @@ export class BookingListComponent implements OnInit, OnChanges {
       newData=[]
       for (const entry of inData){
           newData.push(new Booking(entry))
+          newData=newData.concat(newData)
       }
       this.bookingData.data=newData 
     })

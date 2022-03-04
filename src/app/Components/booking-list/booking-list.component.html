@@ -1,12 +1,10 @@
-<h1 style="text-align: center;">BookingLists content</h1>
-<button mat-icon-button color="primary" title="Refresh"(click)="$event.stopPropagation();refreshData();"><mat-icon>refresh</mat-icon></button>
 <div class="backContainer">
     <div class="tableContainer">
       <mat-table [dataSource]="bookingData">
 
         <ng-container  matColumnDef="bookingid">
           <th mat-header-cell *matHeaderCellDef> uuid </th>
-          <td mat-cell *matCellDef="let element"> {{element.uuid}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.uuid }} </td>
       </ng-container>
     
       <ng-container matColumnDef="userid">
@@ -21,13 +19,13 @@
     
       <ng-container matColumnDef="check_in_date">
           <th mat-header-cell *matHeaderCellDef> check_in_date </th>
-          <td mat-cell *matCellDef="let element"> {{element.check_in_date}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.check_in_date|date}} </td>
       </ng-container>
     
     
       <ng-container matColumnDef="check_out_date">
           <th mat-header-cell *matHeaderCellDef> check_out_date </th>
-          <td mat-cell *matCellDef="let element"> {{element.check_out_date}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.check_out_date|date}} </td>
       </ng-container>
     
       <ng-container matColumnDef="action">
@@ -65,7 +63,8 @@
               [pageSize]="10"
               [pageSizeOptions]="[5, 10, 25, 100]"
               aria-label="Select page">
-        </mat-paginator>      
+              <button mat-icon-button color="primary" title="Refresh"(click)="$event.stopPropagation();refreshData();"><mat-icon>refresh</mat-icon></button>
+            </mat-paginator>      
     </div>
     
 </div>
