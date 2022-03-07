@@ -1,21 +1,22 @@
 
 
-
-<div *ngIf="bookingDetails; then thenBlock else elseBlock"></div>
-
-
+<div>
+    <div *ngIf="bookingDetails; then thenBlock else elseBlock"></div>
 
 
 
 
 
- <!-- TEMPLATES -->
-<ng-template #thenBlock>
-    Booking detail section
-    {{bookingDetails.roomid}}
-    {{bookingDetails.roomid}}
-    {{bookingDetails.roomid}}
-    {{bookingDetails.roomid}}
-    {{bookingDetails.roomid}}.
-</ng-template>
-<ng-template #elseBlock></ng-template>
+
+
+    <!-- TEMPLATES -->
+   <ng-template #thenBlock>
+       Booking detail section
+       {{bookingDetails.roomid}}
+       {{bookingDetails.roomid}}
+       {{bookingDetails.roomid}}
+       {{bookingDetails.roomid}}
+       {{bookingDetails.roomid}}.
+   </ng-template>
+   <ng-template #elseBlock></ng-template>
+</div>

@@ -14,10 +14,12 @@
 
 h1{
   text-align: center;
-  color: red;}
+  color: red;
+  font-family: 'Brush Script MT', cursive;
+}
 
 .row{
-  display:flex;   height: auto;flex-wrap: wrap
+  display:flex;  height: auto;flex-wrap: wrap
 }
 .row:after{
   clear: both;

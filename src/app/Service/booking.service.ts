@@ -9,12 +9,19 @@ import { Booking } from "../Components/booking-section/booking.model";
 export class BookingService{
   
     private currentBooking:ReplaySubject<Booking> = new ReplaySubject( )
- 
+    private input:ReplaySubject<boolean>=new ReplaySubject()
+
     public get getCurrentBooking(): Observable<Booking>{
       return this.currentBooking.asObservable();
     }
     setBooking(booking: Booking) {
       this.currentBooking.next(booking);
     }
-    
+    public get toggleSidebarFromList(): Observable<Boolean>{
+      return this.input.asObservable();
+    }
+    toggleOffSidebar(){
+      this.input.next(false)
+    }
+ 
 }

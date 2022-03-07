@@ -1,7 +1,8 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav, MatSidenavContent } from '@angular/material/sidenav';
 import { delay } from 'rxjs/operators';
+import { BookingService } from 'src/app/Service/booking.service';
 
 @Component({
   selector: 'app-headers',
@@ -13,8 +14,11 @@ export class HeadersComponent implements OnInit {
   sidenav!: MatSidenav;
   @ViewChild(MatSidenavContent)
   content! :MatSidenavContent
-  constructor(private observer: BreakpointObserver) {}
-  ngOnInit(): void {
+  constructor(private observer: BreakpointObserver,private bookingService:BookingService) {}
+  ngOnInit() {
+    this.bookingService.toggleSidebarFromList.subscribe(
+      inputData => {this.sidenav.close();}
+    )
   }
 
   ngAfterViewInit() {
@@ -30,7 +34,6 @@ export class HeadersComponent implements OnInit {
           this.sidenav.mode = 'side';
           this.sidenav.open();
           this.content._container.updateContentMargins()
-
         }
       });
   }

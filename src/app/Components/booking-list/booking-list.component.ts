@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { Component, OnChanges, OnInit, Output, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
@@ -21,16 +21,14 @@ import { backEndConnection } from 'src/app/Service/httpConnection.service';
   ],
 })
 export class BookingListComponent implements OnInit, OnChanges {
-  bookingList: Booking[]=[   
-    // new Booking("1","2","3",new Date(),new Date()),
-
-  ] 
+  bookingList: Booking[]=[] 
   bookingData:MatTableDataSource<Booking>
   @ViewChild('paginator') paginator: MatPaginator;
   expandedElement:Booking|null
   displayedColumns=["bookingid","userid","roomid","check_in_date","check_out_date","action"]
-  constructor(private bookingService:BookingService, private cdref: ChangeDetectorRef, private conn:backEndConnection) { }
   
+  
+  constructor(private bookingService:BookingService, private cdref: ChangeDetectorRef, private conn:backEndConnection) { }
   ngOnInit(): void {
     
   }
@@ -46,11 +44,9 @@ export class BookingListComponent implements OnInit, OnChanges {
   }
   onBookingSelected(event:Booking){
     this.bookingService.setBooking(event)
+    this.bookingService.toggleOffSidebar()
   }  
   
-  expandBooking(event:Booking){
-    this.expandedElement=event
-  }
 
   onActionSelected(event:Booking){
     this.bookingService.setBooking(event) 

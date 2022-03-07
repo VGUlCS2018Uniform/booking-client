@@ -20,7 +20,7 @@ export class backEndConnection{
         const httpOptions = {
             headers: new HttpHeaders({
               'Content-Type':  'application/json',
-              'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjNGUxZTgzZC02OTQ5LTRjYjEtOTkxNC1kOTQxMmRmZWIzOTkiLCJ1c2VyUm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ2MzgwMDE4LCJleHAiOjE2NDY0NjY0MTh9.7xWiMWlTEAKmbIo9rsk--GB-QMeI6bLIAHwpg7mxOQo'
+              'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0NmEzMmJmNy0yYjRmLTQyZmEtYjgyOS05ZTk3NzJmMGZlZmYiLCJ1c2VyUm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ2NjE3NDg4LCJleHAiOjE2NDY3MDM4ODh9.ec583TTSxyXI9RnkmroJXbjDVwVRMKWr6MbQqKU8Fj4'
             })
           };
           console.log("fetch flared")
