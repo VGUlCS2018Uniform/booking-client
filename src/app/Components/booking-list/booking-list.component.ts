@@ -40,6 +40,7 @@ export class BookingListComponent implements OnInit, OnChanges {
     this.refreshData()
     this.bookingData = new MatTableDataSource(this.bookingList)
     this.bookingData.paginator=this.paginator
+    
     this.cdref.detectChanges()
     // const eventObservable = Observable.create(observer =>{})
   }

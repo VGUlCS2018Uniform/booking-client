@@ -9,7 +9,7 @@ import { BookingService } from 'src/app/Service/booking.service';
 export class BookingSectionComponent implements OnInit {
   
   constructor(bookingService:BookingService) { }
-
+  
   ngOnInit(): void {
   }
 
