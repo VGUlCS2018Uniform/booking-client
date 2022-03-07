@@ -1,12 +1,10 @@
 import { Component, OnChanges, OnInit, Output, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Observable } from 'rxjs';
 import { BookingService } from 'src/app/Service/booking.service';
-import { Booking, IBookingInterface } from '../booking-section/booking.model';
+import { Booking } from '../booking-section/booking.model';
 import {ChangeDetectorRef } from '@angular/core';
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { backEndConnection } from 'src/app/Service/httpConnection.service';
+import { BookingConnectionService } from 'src/app/Service/httpConnection.service';
 import { MatSort, Sort } from '@angular/material/sort';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 
@@ -14,13 +12,7 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
   selector: 'app-booking-list',
   templateUrl: './booking-list.component.html',
   styleUrls: ['./booking-list.component.scss'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ],
+  
 })
 export class BookingListComponent implements OnInit, OnChanges {
   dummyArray:Booking[]
@@ -33,8 +25,7 @@ export class BookingListComponent implements OnInit, OnChanges {
   
   constructor(private bookingService:BookingService, 
               private cdref: ChangeDetectorRef, 
-              private conn:backEndConnection,
-              private _liveAnnouncer: LiveAnnouncer) { }
+              private conn:BookingConnectionService) { }
   ngOnInit(): void {
     
   }
@@ -47,7 +38,6 @@ export class BookingListComponent implements OnInit, OnChanges {
     this.bookingData.paginator=this.paginator
     this.bookingData.sort=this.sort
     this.cdref.detectChanges()
-    // const eventObservable = Observable.create(observer =>{})
   }
   onBookingSelected(event:Booking){
     this.bookingService.setBooking(event)

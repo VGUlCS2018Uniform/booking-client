@@ -1,8 +1,11 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSidenav, MatSidenavContent } from '@angular/material/sidenav';
 import { delay } from 'rxjs/operators';
-import { BookingService } from 'src/app/Service/booking.service';
+import { BookingService } from '../../../Service/booking.service';
+import { BookingDialogueComponent } from '../booking-dialogue/booking-dialogue.component';
+
 
 @Component({
   selector: 'app-headers',
@@ -14,7 +17,9 @@ export class HeadersComponent implements OnInit {
   sidenav!: MatSidenav;
   @ViewChild(MatSidenavContent)
   content! :MatSidenavContent
-  constructor(private observer: BreakpointObserver,private bookingService:BookingService) {}
+  constructor(private observer: BreakpointObserver,
+              private bookingService:BookingService,
+              private dialog: MatDialog) {}
   ngOnInit() {
     this.bookingService.toggleSidebarFromList.subscribe(
       inputData => {this.sidenav.close();}
@@ -36,6 +41,15 @@ export class HeadersComponent implements OnInit {
           this.content._container.updateContentMargins()
         }
       });
+  }
+
+  openDialog(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.height='80vh';
+    dialogConfig.width='70vw';
+    this.dialog.open(BookingDialogueComponent, dialogConfig);
   }
 }
 

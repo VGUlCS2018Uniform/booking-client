@@ -16,7 +16,7 @@
     <mat-icon>info</mat-icon>
     <span>About</span>
 </button>
-<button mat-button>
+<button mat-button (click)="openDialog()">
     <mat-icon>add_to_photos</mat-icon>
     <span>Create Booking</span>
 </button>
@@ -28,7 +28,7 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" mode="over" class="mat-elevation-z8">
       <!-- <p>later change this to reference userimage from cloudinary</p> -->
-      <img class="avatar mat-elevation-z8" src="./../../../assets/ok snipp.png" /> 
+      <img class="avatar mat-elevation-z8" src="./../../../../assets/ok snipp.png" /> 
       <h4 class="name">James da Dumb</h4>
       <p class="designation">Software Engineer Intern</p>
       <mat-divider></mat-divider>

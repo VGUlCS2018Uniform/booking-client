@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, of, ReplaySubject, Subject } from "rxjs";
-import { Booking } from "../Components/booking-section/booking.model";
+import { Booking } from "../Components/BookingComponents/booking-section/booking.model";
 
 
 
@@ -9,7 +9,7 @@ import { Booking } from "../Components/booking-section/booking.model";
 export class BookingService{
   
     private currentBooking:ReplaySubject<Booking> = new ReplaySubject( )
-    private input:ReplaySubject<boolean>=new ReplaySubject()
+    private toggledOffFromList:ReplaySubject<boolean>=new ReplaySubject()
 
     public get getCurrentBooking(): Observable<Booking>{
       return this.currentBooking.asObservable();
@@ -18,10 +18,10 @@ export class BookingService{
       this.currentBooking.next(booking);
     }
     public get toggleSidebarFromList(): Observable<Boolean>{
-      return this.input.asObservable();
+      return this.toggledOffFromList.asObservable();
     }
     toggleOffSidebar(){
-      this.input.next(false)
+      this.toggledOffFromList.next(false)
     }
  
 }

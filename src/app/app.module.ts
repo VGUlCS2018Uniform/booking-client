@@ -5,15 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { HeadersComponent } from './Components/headers/headers.component';
-import { FormsModule } from '@angular/forms';
-import { BookingSectionComponent } from './Components/booking-section/booking-section.component';
-import { BookingDetailComponent } from './Components/booking-detail/booking-detail.component';
-import { BookingService } from './Service/booking.service';
-import { BookingListComponent } from './Components/booking-list/booking-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HeadersComponent } from './Components/BookingComponents/headers/headers.component';
+import { BookingSectionComponent } from './Components/BookingComponents/booking-section/booking-section.component';
+import { BookingDetailComponent } from './Components/BookingComponents/booking-detail/booking-detail.component';
+import { BookingListComponent } from './Components/BookingComponents/booking-list/booking-list.component';
+import { BookingDialogueComponent } from './Components/BookingComponents/booking-dialogue/booking-dialogue.component';
 import { HttpClientModule } from '@angular/common/http';
-import { backEndConnection } from './Service/httpConnection.service';
 import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BookingService } from './Service/booking.service';
+import { BookingConnectionService } from './Service/httpConnection.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { MatSortModule } from '@angular/material/sort';
     HeadersComponent,
     BookingSectionComponent,
     BookingDetailComponent,
-    BookingListComponent
+    BookingListComponent,
+    BookingDialogueComponent
   ],
   imports: [
     BrowserModule,
@@ -29,10 +32,12 @@ import { MatSortModule } from '@angular/material/sort';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    MatSortModule
+    MatSortModule,
+    MatDialogModule
   ],
-  providers: [BookingService,backEndConnection],
+  providers: [BookingService,BookingConnectionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
