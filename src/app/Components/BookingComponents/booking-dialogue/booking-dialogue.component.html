@@ -1,6 +1,7 @@
 
 <mat-stepper orientation="vertical" linear="isLinear" #stepper>
     <mat-step >
+        <ng-template matStepLabel>Which room size would you like</ng-template>
         <form >
             <mat-form-field appearance="fill" >
                 <mat-label>Room Size</mat-label>
@@ -13,6 +14,8 @@
     </mat-step>
     
     <mat-step>
+        <ng-template matStepLabel>Room Selection</ng-template>
+        <ng-template *ngIf="SelectedSize; then selected else notselected"></ng-template>
         <form>
             <mat-form-field appearance="fill" >
                 <mat-label>Room Size</mat-label>
@@ -33,3 +36,5 @@
     </mat-step>
   </mat-stepper>
 
+  <ng-template matStepLabel #notselected>You Have Not Chosen Room Size {{filteredRoomArray?.length}} rooms </ng-template>
+  <ng-template  matStepLabel #selected>Basing on selection of size {{SelectedSize}}, we found {{filteredRoomArray?.length}} rooms </ng-template>
