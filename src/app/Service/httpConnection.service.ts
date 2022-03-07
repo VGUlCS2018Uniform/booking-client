@@ -41,6 +41,16 @@ export class BookingConnectionService{
         console.log("fetch Rooms flared")
       return this.http.get<RoomDTO[]>("http://localhost:3000/rooms",httpOptions);
   }
+    getRoomTimesheet(uuid:string):Observable<Date[]>{
+      const httpOptions = {
+          headers: new HttpHeaders({
+            'Content-Type':  'application/json',
+            'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0NmEzMmJmNy0yYjRmLTQyZmEtYjgyOS05ZTk3NzJmMGZlZmYiLCJ1c2VyUm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ2NjE3NDg4LCJleHAiOjE2NDY3MDM4ODh9.ec583TTSxyXI9RnkmroJXbjDVwVRMKWr6MbQqKU8Fj4'
+          })
+        };
+        console.log("fetch Timesheet flared")
+      return this.http.get<Date[]>("http://localhost:3000/booking/timetable/"+uuid,httpOptions);
+  }
 }
 
 export class RoomDTO{

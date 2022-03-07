@@ -5,7 +5,7 @@
             <mat-form-field appearance="fill" >
                 <mat-label>Room Size</mat-label>
                 <mat-select   required>
-                  <mat-option *ngFor="let size of RoomSizeArray | keyvalue" value={{size}} (click)="selectSize(size.value.toString())">{{size.value}}</mat-option>
+                  <mat-option *ngFor="let size of RoomSizeArray " value={{size}} (click)="selectSize(size)">{{size}}</mat-option>
                 </mat-select>
               </mat-form-field>
         </form>
@@ -17,17 +17,7 @@
             <mat-form-field appearance="fill" >
                 <mat-label>Room Size</mat-label>
                 <mat-select>
-                  <mat-option *ngFor="let item of filteredRoomArray" value={{item}}>{{item.codeName}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-        </form>
-    </mat-step>
-
-    <mat-step>
-        <form>
-            <mat-form-field appearance="fill" >
-                <mat-label>Timeframe</mat-label>
-                <mat-select>
+                  <mat-option *ngFor="let item of filteredRoomArray" value={{item}} (click)="selectRoom(item)">{{item.codeName}}</mat-option>
                 </mat-select>
               </mat-form-field>
         </form>

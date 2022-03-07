@@ -11,6 +11,8 @@ export class BookingDialogueComponent implements OnInit {
   RoomGroup: FormGroup;
   RoomSizeGroup: FormGroup;
   SelectedSize:string;
+  SelectedRoom:Room;
+  SelectedRoomTimesheet:Date[]=[];
   RoomSizeArray: string[]
   originalRoomArray:Room[]
   filteredRoomArray:Room[]
@@ -48,7 +50,13 @@ export class BookingDialogueComponent implements OnInit {
   selectSize(size:string){
     this.SelectedSize=size.toLocaleLowerCase()
     this.filteredRoomArray=this.originalRoomArray.slice().filter(element => element.size==this.SelectedSize)
-    console.log(this.originalRoomArray)
     console.log(this.filteredRoomArray)
+  }
+
+  selectRoom(room:Room){
+      this.SelectedRoom=room
+      this.conn.getRoomTimesheet(this.SelectedRoom.uuid).subscribe((data)=>this.SelectedRoomTimesheet=data)
+      console.log(this.SelectedRoomTimesheet)
+
   }
 }
