@@ -1,5 +1,15 @@
 
-export class Booking {
+export interface IBookingInterface{
+    uuid:string
+    userid:string
+    roomid:string
+    booking_id:string
+    check_in_date:Date
+    check_out_date:Date 
+    created_date:Date
+    totalPrice:number
+}
+export class Booking implements IBookingInterface {
     public uuid:string
     public userid:string
     public roomid:string

@@ -13,7 +13,7 @@ export class BookingDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.bookingService.getCurrentBooking.subscribe(
-      bookingData => {this.bookingDetails=bookingData; console.log("this is detail component, received")}
+      bookingData => {this.bookingDetails=bookingData; }
     )
   }
   

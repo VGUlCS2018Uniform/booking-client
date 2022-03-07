@@ -13,6 +13,7 @@ import { BookingService } from './Service/booking.service';
 import { BookingListComponent } from './Components/booking-list/booking-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { backEndConnection } from './Service/httpConnection.service';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { backEndConnection } from './Service/httpConnection.service';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSortModule
   ],
   providers: [BookingService,backEndConnection],
   bootstrap: [AppComponent]

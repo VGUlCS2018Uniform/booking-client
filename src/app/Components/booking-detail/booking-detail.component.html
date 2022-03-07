@@ -11,12 +11,18 @@
 
     <!-- TEMPLATES -->
    <ng-template #thenBlock>
-       Booking detail section
-       {{bookingDetails.roomid}}
-       {{bookingDetails.roomid}}
-       {{bookingDetails.roomid}}
-       {{bookingDetails.roomid}}
-       {{bookingDetails.roomid}}.
+       <div class="contentDetail">
+            
+            <mat-selection-list  [multiple]="false">
+                <mat-list-option *ngFor="let field of bookingDetails | keyvalue ">
+                    
+                    <div mat-line>{{field.key}}:   <span class="field">{{field.value}}</span></div>
+    
+                    <mat-divider></mat-divider>
+                </mat-list-option>
+              </mat-selection-list>
+       </div>
+       <h1>You know I would rather make this a table, look better</h1>
    </ng-template>
    <ng-template #elseBlock></ng-template>
 </div>
