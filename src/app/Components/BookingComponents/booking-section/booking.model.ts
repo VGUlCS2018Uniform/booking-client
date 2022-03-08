@@ -52,3 +52,10 @@ export class BookingDTO{
     public created_date:Date
     public totalPrice:number
 }
+export class createBookingDTO{
+    public user_id:string;
+    public room_id:string;
+    public check_in_date:string;
+    public check_out_date:string;
+
+}
